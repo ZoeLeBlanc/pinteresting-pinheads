@@ -75,6 +75,6 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
 			 });
 		});
 	};
-	return {getBoardList, postNewBoard, deleteBoard, getSingleBoard, editBoard};
+	return {getPinList, postNewPin, deletePin, getSinglePin, editPin};
 });
 

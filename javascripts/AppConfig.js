@@ -34,29 +34,34 @@ app.config(function($routeProvider){
 			templateUrl: 'partials/auth.html',
 			controller: 'AuthCtrl'
 		})
-		// .when('/items/list', {
-		// 	templateUrl: 'partials/item-list.html',
-		// 	controller: 'ItemListCtrl',
-		// 	resolve: {isAuth}
-		// })
-		// .when('/items/new', {
-		// 	templateUrl: 'partials/item-new.html',
-		// 	controller: 'ItemNewCtrl',
-		// 	resolve: {isAuth}
-		// })
-		// .when('/items/view/:id', {
-		// 	templateUrl: 'partials/item-view.html',
-		// 	controller: 'ItemViewCtrl',
-		// 	resolve: {isAuth}
-		// })
-		// .when('/items/edit/:id', {
-		// 	templateUrl: 'partials/item-new.html',
-		// 	controller: 'ItemEditCtrl',
-		// 	resolve: {isAuth}
-		// })
-		// .when('/logout', {
-		// 	templateUrl: 'partials/auth.html',
-		// 	controller: 'AuthCtrl'
-		// })
+		.when('/boards/list', {
+			templateUrl: 'partials/board-list.html',
+			controller: 'BoardListCtrl',
+			resolve: {isAuth}
+		})
+		.when('/search', {
+			templateUrl: 'partials/search.html',
+			controller: 'SearchCtrl',
+			resolve: {isAuth}
+		})
+		.when('/pins/list/:id', {
+			templateUrl: 'partials/pin-list.html',
+			controller: 'PinListCtrl',
+			resolve: {isAuth}
+		})
+		.when('/pins/view/:id', {
+			templateUrl: 'partials/pin-view.html',
+			controller: 'ItemViewCtrl',
+			resolve: {isAuth}
+		})
+		.when('/pins/edit/:id', {
+			templateUrl: 'partials/pin-new.html',
+			controller: 'ItemEditCtrl',
+			resolve: {isAuth}
+		})
+		.when('/logout', {
+			templateUrl: 'partials/auth.html',
+			controller: 'AuthCtrl'
+		})
 		.otherwise('/auth');
 });
