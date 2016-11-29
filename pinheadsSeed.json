@@ -1,0 +1,46 @@
+{
+	"boards":{
+		"board0":{ 
+	    	"boardTitle": "recipes", 
+	    	"uid":"A3zrkItftJT9ZwryuE5C6dENx0F2"
+    	},
+    	"board1":{ 
+	    	"boardTitle": "funny cats", 
+	    	"uid":"drnLmJGNJpc5A3m0O4SLlY9xERG2"
+    	},
+    	"board2":{ 
+	    	"boardTitle": "cozy places", 
+	    	"uid":"A3zrkItftJT9ZwryuE5C6dENx0F2"
+    	}
+	},
+	"pins":{
+		"pin0":{
+			"pinTitle": "spaghetti squash",
+			"boardid": "board0",
+			"url": "",
+			"uid": "A3zrkItftJT9ZwryuE5C6dENx0F2"
+		},
+		"pin1":{
+			"pinTitle": "garfield",
+			"boardid": "board1",
+			"url": "",
+			"uid": "drnLmJGNJpc5A3m0O4SLlY9xERG2"
+		},
+		"pin2":{
+			"pinTitle": "nook space",
+			"boardid": "board2",
+			"url": "",
+			"uid": "A3zrkItftJT9ZwryuE5C6dENx0F2"
+		}
+	},
+	"users":{
+		"user0":{
+			"uid":"A3zrkItftJT9ZwryuE5C6dENx0F2",
+			"username":"b"
+		},
+		"user1":{
+			"uid": "drnLmJGNJpc5A3m0O4SLlY9xERG2",
+			"username":"a"
+		}
+	}
+}
