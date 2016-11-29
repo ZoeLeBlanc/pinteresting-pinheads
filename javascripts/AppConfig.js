@@ -51,12 +51,7 @@ app.config(function($routeProvider){
 		})
 		.when('/pins/view/:id', {
 			templateUrl: 'partials/pin-view.html',
-			controller: 'ItemViewCtrl',
-			resolve: {isAuth}
-		})
-		.when('/pins/edit/:id', {
-			templateUrl: 'partials/pin-new.html',
-			controller: 'ItemEditCtrl',
+			controller: 'PinViewCtrl',
 			resolve: {isAuth}
 		})
 		.when('/logout', {

@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body ng-app="PinheadsApp">
+           <div ng-include="'./partials/nav.html'"></div>
+
   <div ng-view></div>
     <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
     <script type="text/javascript" src="/lib/node_modules/jquery/dist/jquery.min.js"></script>
@@ -21,5 +23,6 @@
     <script src="/javascripts/factories/UserFactory.js"></script>
     <script src="/javascripts/factories/BoardFactory.js"></script><script src="/javascripts/factories/PinFactory.js"></script>
     <script src="/javascripts/controllers/AuthCtrl.js"></script>
+    <script src="/javascripts/controllers/NavCtrl.js"></script>
   </body>
 </html>
