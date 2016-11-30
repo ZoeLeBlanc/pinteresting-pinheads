@@ -9,9 +9,12 @@ app.controller("SearchCtrl", function($scope, $rootScope, $routeParams, SearchFa
 		SearchFactory.getImgurSearch(searchTerm).then((searchItems)=>{
 			console.log("searchItems", searchItems.data);
 			$scope.searchImages = searchItems.data;
+			
 		});
-	};	
+	};
 
+	console.log("boards 0", $rootScope.boardsArray[0].id);
+		console.log("boards 1", $rootScope.boardsArray[1].id);
 	
 //return search push it up to the dom elements
 

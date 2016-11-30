@@ -19,7 +19,11 @@
 	        </div>
 	        <div class="card-reveal">
       			<span class="card-title grey-text text-darken-4">{{searchImage.title}}<i class="material-icons right">close</i></span>
-      			<p>Here is some more information about this product that is only revealed once clicked on.</p>
+      			<label>Select Board </label>
+				<select ng-model="selectedBoard" material-select>
+  				<option value="">---Please select---</option> <!-- not selected / blank option -->
+  				<option ng-repeat="boardArray in boardsArray" ng-selected="boardArray==selectedBoard" value="{{boardArray.id}}">{{boardArray.boardTitle}}</option> 
+				</select>
     		</div>
 	    </div>
 	</div>
