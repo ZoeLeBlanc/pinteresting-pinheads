@@ -17,7 +17,7 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			$rootScope.user = userCreds;
 			$scope.login = {};
 			$scope.register = {};
-			$location.url('/items/list');
+			$location.url('/search');
 		});
 	};
 	let logGoogleIn = (loginStuff)=>{
