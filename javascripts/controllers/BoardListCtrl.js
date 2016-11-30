@@ -1,10 +1,22 @@
 "use strict";
 
 app.controller("BoardListCtrl", function($scope, $rootScope, $location, BoardFactory) {
-  console.log("BoardListCtrl");
-  console.log("uid: ", $rootScope.user.uid);
+
+  $scope.boards = [];
+
   BoardFactory.getBoardList($rootScope.user.uid).then(function(boards) {
     console.log("boards: ", boards);
     $scope.boards = boards;
+    $rootScope.boardsArray = boards;
   });
+
+  $scope.showCreateNewBoard = function() {
+    $location.url("/contact-list");
+  };
+
+  let createNewBoardThenReloadBoards = function() {
+    console.log("createNewBoardThenReloadBoards");
+
+  };
+
 });
