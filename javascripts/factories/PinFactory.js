@@ -24,7 +24,8 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
 				pinTitle: newPin.pinTitle,
 				boardid: newPin.boardid,
 				url: newPin.url,
-				uid: newPin.uid
+				uid: newPin.uid,
+				note: newPin.note
 				})
 			)
 			 .success( (postResponse)=>{
@@ -64,7 +65,8 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
 					pinTitle: editPin.pinTitle,
 					boardid: editPin.boardid,
 					url: editPin.url,
-					uid: editPin.uid
+					uid: editPin.uid,
+					note: editPin.note
 				})
 			)
 			 .success( (editResponse)=>{

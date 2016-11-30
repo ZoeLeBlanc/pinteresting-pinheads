@@ -1,0 +1,28 @@
+<div class="row">
+	<div ng-repeat="pin in pins">
+		<div class="my-pins {{pin.boardid}}">
+		<h2>{{pin.boardTitle}}}</h2>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1">
+
+			<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title"><a ng-href="#/pinss/view/{{pin.id}}">{{pin.PinTitle}}</a></h3>
+			  	</div>
+  				<div class="panel-body">
+  					<div class="row">
+	    				<div class="col-xs-10">
+							<h4>{{pin.url}}</h4>
+							<h4>{{pin.note}}</h4>
+						</div>
+						
+						<div class="col-xs-1 col-xs-offset-1">	
+							<button class="btn btn-danger fa fa-trash-o" ng-click="deleteContact(contact.id)"></button>
+						</div>
+					</div>
+  				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
