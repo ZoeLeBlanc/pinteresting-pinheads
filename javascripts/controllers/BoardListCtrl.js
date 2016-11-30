@@ -11,12 +11,9 @@ app.controller("BoardListCtrl", function($scope, $rootScope, $location, BoardFac
   });
 
   $scope.showCreateNewBoard = function() {
-    $location.url("/contact-list");
+    $location.url("/boards/new");
   };
 
-  let createNewBoardThenReloadBoards = function() {
-    console.log("createNewBoardThenReloadBoards");
 
-  };
 
 });
