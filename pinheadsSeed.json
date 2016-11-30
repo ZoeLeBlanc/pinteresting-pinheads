@@ -1,17 +1,21 @@
 {
 	"boards":{
-		"board0":{ 
-	    	"boardTitle": "recipes", 
-	    	"uid":"A3zrkItftJT9ZwryuE5C6dENx0F2"
+		"board0":{
+	    	"boardTitle": "recipes",
+	    	"uid":"6K0zf7boqFTn1nMVXqca1I88o9u2"
     	},
-    	"board1":{ 
-	    	"boardTitle": "funny cats", 
-	    	"uid":"drnLmJGNJpc5A3m0O4SLlY9xERG2"
+    	"board1":{
+	    	"boardTitle": "funny cats",
+	    	"uid":"6K0zf7boqFTn1nMVXqca1I88o9u2"
     	},
-    	"board2":{ 
-	    	"boardTitle": "cozy places", 
-	    	"uid":"A3zrkItftJT9ZwryuE5C6dENx0F2"
-    	}
+    	"board2":{
+	    	"boardTitle": "cozy places",
+	    	"uid":"6K0zf7boqFTn1nMVXqca1I88o9u2"
+    	},
+			"board3":{
+				"boardTitle": "funny dogs",
+				"uid":"6K0zf7boqFTn1nMVXqca1I88o9u2"
+			}
 	},
 	"pins":{
 		"pin0":{
@@ -35,8 +39,8 @@
 	},
 	"users":{
 		"user0":{
-			"uid":"A3zrkItftJT9ZwryuE5C6dENx0F2",
-			"username":"b"
+			"uid":"6K0zf7boqFTn1nMVXqca1I88o9u2",
+			"username":"Alex"
 		},
 		"user1":{
 			"uid": "drnLmJGNJpc5A3m0O4SLlY9xERG2",
