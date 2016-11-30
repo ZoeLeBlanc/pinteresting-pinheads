@@ -14,6 +14,16 @@ app.controller("BoardListCtrl", function($scope, $rootScope, $location, BoardFac
     $location.url("/boards/new");
   };
 
+  $scope.deleteBoard = function(boardId) {
+    BoardFactory.deleteBoard(boardId).then(function(response) {
+      BoardFactory.getBoardList($rootScope.user.uid).then(function(boards) {
+        console.log("boards: ", boards);
+        $scope.boards = boards;
+        $rootScope.boardsArray = boards;
+      });
+    });
+  };
+
 
 
 });
