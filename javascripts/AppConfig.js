@@ -39,6 +39,11 @@ app.config(function($routeProvider){
 			controller: 'BoardListCtrl',
 			resolve: {isAuth}
 		})
+		.when('/boards/new', {
+			templateUrl: 'partials/board-new.html',
+			controller: 'BoardNewCtrl',
+			resolve: {isAuth}
+		})
 		.when('/search', {
 			templateUrl: 'partials/search.html',
 			controller: 'SearchCtrl',
