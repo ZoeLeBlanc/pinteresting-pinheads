@@ -18,12 +18,15 @@
 	          	<span class="card-title activator grey-text text-darken-4">{{searchImage.title}}<i class="material-icons right">more_vert</i></span>
 	        </div>
 	        <div class="card-reveal">
-      			<span class="card-title grey-text text-darken-4">{{searchImage.title}}<i class="material-icons right">close</i></span>
-      			<label>Select Board </label>
-				<select ng-model="selectedBoard" material-select>
-  				<option value="">---Please select---</option> <!-- not selected / blank option -->
-  				<option ng-repeat="boardArray in boardsArray" ng-selected="boardArray==selectedBoard" value="{{boardArray.id}}">{{boardArray.boardTitle}}</option> 
-				</select>
+      			<span class="card-title grey-text text-darken-4" id="cardTest" ng-click="reEnable()">{{searchImage.title}}<i class="material-icons right" >close</i></span>
+      			<div class="card-action">
+	      			<label>Select Board</label>
+					<select ng-model="selectedBoard" material-select>
+		  				<option value="">---Please select---</option> <!-- not selected / blank option -->
+		  				<option ng-repeat="boardArray in boardsArray" ng-selected="boardArray==selectedBoard" value="{{boardArray.id}}">{{boardArray.boardTitle}}</option> 
+					</select>
+						<button class="waves-effect waves-light btn col s8" ng-disabled="isDisabled" ng-click="savePin(selectedBoard, searchImage)">Save Pin<i class="small material-icons">content-save</i></button>
+				</div>
     		</div>
 	    </div>
 	</div>
