@@ -1,12 +1,15 @@
 "use strict";
 
-app.controller("PinListCtrl", function ($scope, $rootScope, PinFactory) {
+app.controller("PinListCtrl", function ($scope, $rootScope, $routeParams, PinFactory) {
 	
 	$scope.pins = [];
 
+	$scope.selectedBoard = {};
+	$scope.boardId = $routeParams.id;
+
 	let getPins = function(){
 		PinFactory.getPinList($rootScope.user.uid).then(function(fbPins){
-			$scope.Pins = fbPins;	
+			$scope.pins = fbPins;	
 		});
 	};
 

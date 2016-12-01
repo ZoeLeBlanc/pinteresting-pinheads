@@ -15,6 +15,7 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
 			 .error( (errorResponse)=>{
 			 	reject(errorResponse);
 			 });
+			
 		});
 	};
 	//Firebase: send a new item to Firebase
