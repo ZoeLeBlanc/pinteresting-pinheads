@@ -24,8 +24,8 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			$rootScope.user = userCreds;
 			$scope.login = {};
 			$scope.register = {};
-
 			$location.url('/boards/list');
+
 		});
 	};
 	$scope.loginGoogleUser = ()=>{
