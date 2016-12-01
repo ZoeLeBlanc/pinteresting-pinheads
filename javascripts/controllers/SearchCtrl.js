@@ -1,9 +1,15 @@
 "use strict";
 
-app.controller("SearchCtrl", function($scope, $rootScope, $routeParams, $timeout, SearchFactory, PinFactory){
+app.controller("SearchCtrl", function($scope, $location, $rootScope, $routeParams, $timeout, SearchFactory, PinFactory){
 //Need a search to get api from imgur, pass query
 	$scope.searchImages = [];
 //return search push it up to the dom elements
+	$scope.enterImgur = (event)=>{
+		var keyCode = event.which || event.keyCode;
+	    if (keyCode === 13) {
+	        $scope.searchImgur($scope.searchQuery);
+	    }
+	};
 	$scope.searchImgur = (searchTerm)=>{
 		console.log("searchTerm", searchTerm);
 		SearchFactory.getImgurSearch(searchTerm).then((searchItems)=>{
@@ -14,20 +20,8 @@ app.controller("SearchCtrl", function($scope, $rootScope, $routeParams, $timeout
 	};
 	//Save search to board
 	$scope.newPin = {};
-	$scope.reEnable = ()=>{
-		if($scope.isDisabled){
-			$scope.isDisabled = false;
-		}
-	};
 	$scope.savePin = (selectedBoard, searchImage)=>{
-		
-    	$scope.isDisabled = true;
 		console.log("selectedBoard", selectedBoard);
-		// $timeout(function(){
-		// 	var el = document.getElementById('cardTest');
-		// 	console.log("el", el);
-		// 	angular.element(el).triggerHandler('click');
-		// }, 0);
 		$scope.newPin.pinTitle = searchImage.title;
 		$scope.newPin.boardid = selectedBoard;
 		$scope.newPin.url = searchImage.link;
@@ -37,5 +31,13 @@ app.controller("SearchCtrl", function($scope, $rootScope, $routeParams, $timeout
 			$scope.newPin = {};
 		});
 	};
-
+	$scope.removeSearchImage = function(searchImage) { 
+  		var index = $scope.searchImages.indexOf(searchImage);
+  		$scope.searchImages.splice(index, 1);     
+	};
+	$scope.newBoard = function(){
+		$location.url('/boards/new');
+	};
 });
+
+
