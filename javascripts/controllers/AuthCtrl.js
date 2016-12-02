@@ -7,7 +7,14 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 		$rootScope.user = {};
 		$location.url("/");
 	}
-	let registerNewGoogleUser = {};
+	$scope.setLoginContainer = function(){
+		$scope.loginContainer = true;
+		$scope.registerContainer = false;
+	};
+	$scope.setRegisterContainer = function(){
+		$scope.loginContainer = false;
+		$scope.registerContainer = true;
+	};
 	let logMeIn = (loginStuff)=>{
 		AuthFactory.authenticate(loginStuff).then( (loginResponse)=>{
 			console.log("loginResponse", loginResponse);
@@ -17,26 +24,23 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			$rootScope.user = userCreds;
 			$scope.login = {};
 			$scope.register = {};
-
 			$location.url('/boards/list');
+
 		});
 	};
-	let logGoogleIn = (loginStuff)=>{
-		UserFactory.getUser(loginStuff.uid).then( (userCreds)=>{
-			console.log("userCreds", userCreds);
-			$rootScope.user = userCreds;
+	$scope.loginGoogleUser = ()=>{
+		AuthFactory.authenticateGoogle().then( (logGoogleResponse)=>{
+			console.log("logGoogleResponse", logGoogleResponse);
+			$rootScope.user = {
+				uid: logGoogleResponse.uid,
+				username: logGoogleResponse.displayName 
+			};
 			$scope.login = {};
 			$scope.register = {};
 			$location.url('/boards/list');
+		}).then( (logGoogleComplete)=>{
+			console.log("logGoogleComplete", logGoogleComplete);
 		});
-	};
-	$scope.setLoginContainer = function(){
-		$scope.loginContainer = true;
-		$scope.registerContainer = false;
-	};
-	$scope.setRegisterContainer = function(){
-		$scope.loginContainer = false;
-		$scope.registerContainer = true;
 	};
 	$scope.registerUser = function(registerNewUser){
 		console.log("registerNewUser", registerNewUser);
@@ -48,28 +52,7 @@ app.controller("AuthCtrl", function($location, $scope, $rootScope, AuthFactory, 
 			logMeIn(registerNewUser);
 		});
 	};
-	$scope.registerGoogleUser = function(){
-		AuthFactory.authenticateGoogle().then( (registerGoogleResponse)=>{
-			console.log("registerGoogleResponse", registerGoogleResponse);
-			let registerNewGoogleUser = registerGoogleResponse;
-			registerNewGoogleUser.username = registerGoogleResponse.displayName;
-			 return AuthFactory.getUser(registerNewGoogleUser);
-			// logGoogleIn(registerNewGoogleUser);
-		}).then( (registerGoogleComplete)=>{
-			console.log("registerGoogleComplete", registerGoogleComplete);
-			logGoogleIn(registerGoogleComplete);
-		});
-	};
 	$scope.loginUser = function(loginNewUser){
 		logMeIn(loginNewUser);
-	};
-	$scope.loginGoogleUser = function(){
-		AuthFactory.authenticateGoogle().then( (loginGoogleResponse)=>{
-			console.log("loginGoogleResponse", loginGoogleResponse);
-			let loginGoogleUser = loginGoogleResponse;
-			loginGoogleUser.username = loginGoogleResponse.displayName;
-			console.log("loginGoogleUser", loginGoogleUser);
-			logGoogleIn(loginGoogleUser);
-		});
 	};
 });

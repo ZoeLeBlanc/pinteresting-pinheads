@@ -15,3 +15,4 @@ app.controller("BoardNewCtrl", function($scope, $rootScope, $location, $routePar
   };
 
 });
+

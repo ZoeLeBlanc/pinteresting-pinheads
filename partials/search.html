@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="row col s10 offset-s2">
     <div class="input-field col s6 offset-s1">
-          <input type="text" placeholder="Search for ..." ng-model="searchQuery">
+          <input type="text" placeholder="Search for ..." ng-model="searchQuery" ng-keyup="$event.keyCode === 13 && searchImgur(searchQuery)">
           <label>Search for Pins</label>
     </div>
     <button class="waves-effect waves-light btn col s2 offset-s1" ng-click="searchImgur(searchQuery)">Search<i class="small material-icons">search</i></button>
@@ -20,12 +20,14 @@
 	        <div class="card-reveal">
       			<span class="card-title grey-text text-darken-4" id="cardTest" ng-click="reEnable()">{{searchImage.title}}<i class="material-icons right" >close</i></span>
       			<div class="card-action">
-	      			<label>Select Board</label>
-					<select ng-model="selectedBoard" material-select>
+	      			<label ng-show="boardsArray.length">Select Board</label>
+					<select ng-model="selectedOption" material-select ng-show="boardsArray.length">
 		  				<option value="">---Please select---</option> <!-- not selected / blank option -->
-		  				<option ng-repeat="boardArray in boardsArray" ng-selected="boardArray==selectedBoard" value="{{boardArray.id}}">{{boardArray.boardTitle}}</option> 
+		  				<!-- <option value="createNewBoard" href="#/boards/new" ng-show="!boardsArray.length">Create new board</option>  -->
+		  				<option ng-repeat="boardArray in boardsArray" ng-selected="boardArray==selectedOption" value="{{boardArray.id}}">{{boardArray.boardTitle}}</option> 
 					</select>
-						<button class="waves-effect waves-light btn col s8" ng-disabled="isDisabled" ng-click="savePin(selectedBoard, searchImage)">Save Pin<i class="small material-icons">content-save</i></button>
+						<button ng-show="!boardsArray.length" class="waves-effect waves-light btn col s8" ng-click="newBoard()">Create New Board<i class="small material-icons">content-save</i></button>
+						<button ng-show="boardsArray.length" class="waves-effect waves-light btn col s8" ng-click="savePin(selectedOption, searchImage); removeSearchImage(searchImage)">Save Pin<i class="small material-icons">content-save</i></button>
 				</div>
     		</div>
 	    </div>
