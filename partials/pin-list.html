@@ -1,5 +1,10 @@
 
 <div class="row">
+
+	<!-- <div ng-repeat="boardarray in boardsarray">
+		<h2>{{boardarray.boardTitle}}</h2>
+	</div> -->
+
 	<div ng-repeat="pin in pins | filter: {boardid: boardId}">
 		<div class="card small col s3 offset-s1">
 	        <div class="card-image">
@@ -16,7 +21,8 @@
 		  				<option value="">---Please select---</option> <!-- not selected / blank option -->
 		  				<option ng-repeat="boardArray in boardsArray" ng-selected="boardArray==selectedBoard" value="{{boardArray.id}}">{{boardArray.boardTitle}}</option> 
 					</select>
-						<button class="waves-effect waves-light btn col s8" ng-disabled="isDisabled" ng-click="savePin(selectedBoard, searchImage)">Save Pin<i class="small material-icons">content-save</i></button>
+						<button class="waves-effect waves-light btn col s7" ng-disabled="isDisabled" ng-click="selectPin(pin.id, selectedBoard)">Update Board<i class="small material-icons">content-save</i></button>
+						<button class="waves-effect waves-light btn col s4 offset-s1" ng-click="deletePin(pin.id)">Delete</button>
 				</div>
     		</div>
 	    </div>
