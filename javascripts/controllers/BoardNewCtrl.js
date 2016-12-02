@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("BoardNewCtrl", function($scope, $rootScope, $location, BoardFactory) {
+app.controller("BoardNewCtrl", function($scope, $rootScope, $location, $routeParams, BoardFactory) {
   $scope.newBoard = {};
   console.log("BoardNewCtrl");
 

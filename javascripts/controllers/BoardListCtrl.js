@@ -1,11 +1,10 @@
 "use strict";
 
-app.controller("BoardListCtrl", function($scope, $rootScope, $location, BoardFactory) {
-
+app.controller("BoardListCtrl", function($scope, $rootScope, $location, BoardFactory, PinFactory) {
   $scope.boards = [];
+  $scope.boardToEdit = {};
 
   BoardFactory.getBoardList($rootScope.user.uid).then(function(boards) {
-    console.log("boards: ", boards);
     $scope.boards = boards;
     $rootScope.boardsArray = boards;
   });
@@ -14,6 +13,13 @@ app.controller("BoardListCtrl", function($scope, $rootScope, $location, BoardFac
     $location.url("/boards/new");
   };
 
-
+  $scope.deleteBoard = function(boardId) {
+    BoardFactory.deleteBoard(boardId).then(function(response) {
+      BoardFactory.getBoardList($rootScope.user.uid).then(function(boards) {
+        $scope.boards = boards;
+        $rootScope.boardsArray = boards;
+      });
+    });
+  };
 
 });
