@@ -25,8 +25,7 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
 				pinTitle: newPin.pinTitle,
 				boardid: newPin.boardid,
 				url: newPin.url,
-				uid: newPin.uid,
-				note: newPin.note
+				uid: newPin.uid
 				})
 			)
 			 .success( (postResponse)=>{
@@ -59,15 +58,14 @@ app.factory("PinFactory", function($q, $http, FIREBASE_CONFIG){
 			 });
 		});
 	};
-	var editPin = function(editPin){
+	var editPin = function(editedPin){
 		return $q((resolve, reject)=>{
-			$http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${editPin.id}.json`, 
+			$http.put(`${FIREBASE_CONFIG.databaseURL}/pins/${editedPin.id}.json`, 
 				JSON.stringify({
-					pinTitle: editPin.pinTitle,
-					boardid: editPin.boardid,
-					url: editPin.url,
-					uid: editPin.uid,
-					note: editPin.note
+					pinTitle: editedPin.pinTitle,
+					boardid: editedPin.boardid,
+					url: editedPin.url,
+					uid: editedPin.uid
 				})
 			)
 			 .success( (editResponse)=>{
