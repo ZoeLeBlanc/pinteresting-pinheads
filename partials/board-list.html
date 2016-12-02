@@ -1,8 +1,4 @@
 <div class="row">
-  <div class="col s6 offset-s3">My Boards</div>
-</div>
-
-<div class="row">
   <button class="btn col s2" ng-click="showCreateNewBoard()">Create New Board</button>
 </div>
 
@@ -14,7 +10,7 @@
           <span class="card-title">{{board.boardTitle}}</span>
         </div>
         <div class="card-action">
-          <a href="">Edit</a>
+          <a ng-href="#/boards/edit/{{board.id}}">Edit</a>
           <a href="" ng-click="deleteBoard(board.id)">Delete</a>
         </div>
       </div>

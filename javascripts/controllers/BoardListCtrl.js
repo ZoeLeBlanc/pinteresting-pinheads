@@ -1,8 +1,8 @@
 "use strict";
 
 app.controller("BoardListCtrl", function($scope, $rootScope, $location, BoardFactory, PinFactory) {
-
   $scope.boards = [];
+  $scope.boardToEdit = {};
 
   BoardFactory.getBoardList($rootScope.user.uid).then(function(boards) {
     $scope.boards = boards;
@@ -21,7 +21,5 @@ app.controller("BoardListCtrl", function($scope, $rootScope, $location, BoardFac
       });
     });
   };
-
-
 
 });
