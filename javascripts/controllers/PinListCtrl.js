@@ -6,6 +6,7 @@ app.controller("PinListCtrl", function ($scope, $rootScope, $routeParams, PinFac
 	$scope.selectedPin = {};
 
 	$scope.selectedBoard = {};
+	console.log("selectedBoard title", $scope.selectedBoard);
 	$scope.boardId = $routeParams.id;
 
 	let getPins = function(){
