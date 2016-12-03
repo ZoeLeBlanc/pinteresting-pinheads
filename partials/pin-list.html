@@ -1,9 +1,10 @@
 
 <div class="row">
 
-	<!-- <div ng-repeat="boardarray in boardsarray">
+	<div ng-repeat="boardarray in boardsArray | filter: {id: boardId}">
 		<h2>{{boardarray.boardTitle}}</h2>
-	</div> -->
+	</div>
+
 
 	<div ng-repeat="pin in pins | filter: {boardid: boardId}">
 		<div class="card small col s3 offset-s1">
